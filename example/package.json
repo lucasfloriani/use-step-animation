@@ -8,6 +8,7 @@
     "react": "link:../node_modules/react",
     "react-dom": "^16.9.0",
     "react-scripts": "^3.0.1",
+    "react-spring": "^9.3.3",
     "use-step-animation": "link:.."
   },
   "scripts": {

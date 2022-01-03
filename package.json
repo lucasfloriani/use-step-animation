@@ -1,7 +1,7 @@
 {
   "name": "use-step-animation",
   "version": "1.0.0",
-  "description": "Custom hook used to make sequence of animations using positions easier",
+  "description": "Custom hook used to make sequence of animations using positions more easily",
   "author": "lucasfloriani",
   "license": "MIT",
   "repository": "lucasfloriani/use-step-animation",
@@ -22,7 +22,10 @@
     "predeploy": "cd example && yarn install && yarn run build",
     "deploy": "gh-pages -d example/build"
   },
-  "dependencies": {},
+  "dependencies": {
+    "react-spring": "^9.3.3",
+    "use-execution-queue": "^0.0.1"
+  },
   "peerDependencies": {
     "react": "^16.9.0"
   },

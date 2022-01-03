@@ -1398,6 +1398,91 @@
   resolved "https://registry.yarnpkg.com/@nodelib/fs.stat/-/fs.stat-1.1.3.tgz#2b5a3ab3f918cca48a8c754c08168e3f03eba61b"
   integrity sha512-shAmDyaQC4H92APFoIaVDHCx5bStIocgvbwQyxPRrbUY20V1EYTbSDchWbuwlMG3V17cprZhA6+78JfB+3DTPw==
 
+"@react-spring/animated@~9.3.0":
+  version "9.3.2"
+  resolved "https://registry.yarnpkg.com/@react-spring/animated/-/animated-9.3.2.tgz#bda85e92e9e9b6861c259f2dacb54270a37b0f39"
+  integrity sha512-pBvKydRHbTzuyaeHtxGIOvnskZxGo/S5/YK1rtYm88b9NQZuZa95Rgd3O0muFL+99nvBMBL8cvQGD0UJmsqQsg==
+  dependencies:
+    "@react-spring/shared" "~9.3.0"
+    "@react-spring/types" "~9.3.0"
+
+"@react-spring/core@~9.3.0":
+  version "9.3.2"
+  resolved "https://registry.yarnpkg.com/@react-spring/core/-/core-9.3.2.tgz#d1dc5810666ac18550db89c58567f28fbe04fb07"
+  integrity sha512-kMRjkgdQ6LJ0lmb/wQlONpghaMT83UxglXHJC6m9kZS/GKVmN//TYMEK85xN1rC5Gg+BmjG61DtLCSkkLDTfNw==
+  dependencies:
+    "@react-spring/animated" "~9.3.0"
+    "@react-spring/shared" "~9.3.0"
+    "@react-spring/types" "~9.3.0"
+
+"@react-spring/konva@~9.3.0":
+  version "9.3.2"
+  resolved "https://registry.yarnpkg.com/@react-spring/konva/-/konva-9.3.2.tgz#726d567c68bdd4b74c8683764c662fae08321910"
+  integrity sha512-LLpmj6bj7Z2LYZDM75JkQ+dNasvdH56+th7VXcoMcOouAcogfI+iJ5tIFFz4yI2f2oTJzy/RkjeovmHMYIP+KQ==
+  dependencies:
+    "@react-spring/animated" "~9.3.0"
+    "@react-spring/core" "~9.3.0"
+    "@react-spring/shared" "~9.3.0"
+    "@react-spring/types" "~9.3.0"
+
+"@react-spring/native@~9.3.0":
+  version "9.3.2"
+  resolved "https://registry.yarnpkg.com/@react-spring/native/-/native-9.3.2.tgz#0d2e4e9f3383e70c7568a5dd94937794bdc669f8"
+  integrity sha512-UQS07N639JIEJBGNGiFre6el6Sk5QEcOQeyBFyA7JmT4ewpRH7mM6JQ7Sd3DNduplsFmypIsWg+9+lmE2d52Rw==
+  dependencies:
+    "@react-spring/animated" "~9.3.0"
+    "@react-spring/core" "~9.3.0"
+    "@react-spring/shared" "~9.3.0"
+    "@react-spring/types" "~9.3.0"
+
+"@react-spring/rafz@~9.3.0":
+  version "9.3.2"
+  resolved "https://registry.yarnpkg.com/@react-spring/rafz/-/rafz-9.3.2.tgz#0cbd296cd17bbf1e7e49d3b3616884e026d5fb67"
+  integrity sha512-YtqNnAYp5bl6NdnDOD5TcYS40VJmB+Civ4LPtcWuRPKDAOa/XAf3nep48r0wPTmkK936mpX8aIm7h+luW59u5A==
+
+"@react-spring/shared@~9.3.0":
+  version "9.3.2"
+  resolved "https://registry.yarnpkg.com/@react-spring/shared/-/shared-9.3.2.tgz#967ce1d8a16d820a99e6eeb2a8f7ca9311d9dfa0"
+  integrity sha512-ypGQQ8w7mWnrELLon4h6mBCBxdd8j1pgLzmHXLpTC/f4ya2wdP+0WIKBWXJymIf+5NiTsXgSJra5SnHP5FBY+A==
+  dependencies:
+    "@react-spring/rafz" "~9.3.0"
+    "@react-spring/types" "~9.3.0"
+
+"@react-spring/three@~9.3.0":
+  version "9.3.2"
+  resolved "https://registry.yarnpkg.com/@react-spring/three/-/three-9.3.2.tgz#e4321c1253077661b1a3de74d8a38a167368ef23"
+  integrity sha512-nZHHjOl4GksoOFNTwvP4h5bACm5OymCUsR3nejWFigqCPep8prUHaawX4kZRwfUbWTYgkp15yM5hy7BkWNN16A==
+  dependencies:
+    "@react-spring/animated" "~9.3.0"
+    "@react-spring/core" "~9.3.0"
+    "@react-spring/shared" "~9.3.0"
+    "@react-spring/types" "~9.3.0"
+
+"@react-spring/types@~9.3.0":
+  version "9.3.2"
+  resolved "https://registry.yarnpkg.com/@react-spring/types/-/types-9.3.2.tgz#0277d436e50d7a824897dd7bb880f4842fbcd0fe"
+  integrity sha512-u+IK9z9Re4hjNkBYKebZr7xVDYTai2RNBsI4UPL/k0B6lCNSwuqWIXfKZUDVlMOeZHtDqayJn4xz6HcSkTj3FQ==
+
+"@react-spring/web@~9.3.0":
+  version "9.3.2"
+  resolved "https://registry.yarnpkg.com/@react-spring/web/-/web-9.3.2.tgz#07620c17bf50b5b0b8bbf9cd8f1312d13778b207"
+  integrity sha512-zzM95rqanap6s0udRCoI4gerONjQjyI6I0h23UZ0X36w5sXmuzv/tBtjGPbsASo377EGM7tRIg9po1KHwb6yQg==
+  dependencies:
+    "@react-spring/animated" "~9.3.0"
+    "@react-spring/core" "~9.3.0"
+    "@react-spring/shared" "~9.3.0"
+    "@react-spring/types" "~9.3.0"
+
+"@react-spring/zdog@~9.3.0":
+  version "9.3.2"
+  resolved "https://registry.yarnpkg.com/@react-spring/zdog/-/zdog-9.3.2.tgz#e25307cda0c7171119f8f536f10ce25ef607c372"
+  integrity sha512-E8MtTG4kNBcW/sEu0Im7L2FZXmhZDfeHSNbaL35cebfBlL5iI6+Pdlr7A/RPJ2pCUUKJRLlxYu3DVTuaqwf6hQ==
+  dependencies:
+    "@react-spring/animated" "~9.3.0"
+    "@react-spring/core" "~9.3.0"
+    "@react-spring/shared" "~9.3.0"
+    "@react-spring/types" "~9.3.0"
+
 "@svgr/babel-plugin-add-jsx-attribute@^4.2.0":
   version "4.2.0"
   resolved "https://registry.yarnpkg.com/@svgr/babel-plugin-add-jsx-attribute/-/babel-plugin-add-jsx-attribute-4.2.0.tgz#dadcb6218503532d6884b210e7f3c502caaa44b1"
@@ -8702,6 +8787,18 @@ react-scripts@^3.0.1:
   optionalDependencies:
     fsevents "2.1.2"
 
+react-spring@^9.3.3:
+  version "9.3.3"
+  resolved "https://registry.yarnpkg.com/react-spring/-/react-spring-9.3.3.tgz#2982065385cf4ecf9c98f0f6976c603a5453f3ba"
+  integrity sha512-S6ZufQylwxwjavylFaU/oqBUZQX2ZvH2bpU3NSoYY8JlArH5sEeKMSzqME3fdp3+AwfOaxPpo25zSFGgytXY3Q==
+  dependencies:
+    "@react-spring/core" "~9.3.0"
+    "@react-spring/konva" "~9.3.0"
+    "@react-spring/native" "~9.3.0"
+    "@react-spring/three" "~9.3.0"
+    "@react-spring/web" "~9.3.0"
+    "@react-spring/zdog" "~9.3.0"
+
 "react@link:../node_modules/react":
   version "0.0.0"
   uid ""
@@ -10287,6 +10384,11 @@ url@^0.11.0:
   dependencies:
     punycode "1.3.2"
     querystring "0.2.0"
+
+use-execution-queue@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/use-execution-queue/-/use-execution-queue-0.0.1.tgz#7e76a9e82442f6b2cf207e2e9df6a0d15f8344fb"
+  integrity sha512-XjRCr9dwT0vZtul3nNqbCMuifaXpSwJlSTKLqJJFvLkAeMKftCb613WSMSttNVZ5Gd80CHmmqKiWUXuMuBhpdQ==
 
 "use-step-animation@link:..":
   version "0.0.0"

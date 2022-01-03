@@ -1,29 +1,67 @@
-import { useMyHook } from './'
+import { useStepAnimation } from ".";
 import { renderHook, act } from "@testing-library/react-hooks";
+import { useRef } from "react";
+// import { Globals } from "react-spring";
+
+// Globals.assign({
+//   skipAnimation: true,
+// });
 
 // mock timer using jest
 jest.useFakeTimers();
+jest.mock("react", () => {
+  const originReact = jest.requireActual("react");
+  const mUseRef = jest.fn();
+  return {
+    ...originReact,
+    useRef: mUseRef,
+  };
+});
 
-describe('useMyHook', () => {
-  it('updates every second', () => {
-    const { result } = renderHook(() => useMyHook());
+const SECOND = 1000;
 
-    expect(result.current).toBe(0);
+describe("useStepAnimation", () => {
+  beforeEach(() => {
+    jest.useFakeTimers();
+  });
 
-    // Fast-forward 1sec
-    act(() => {
-      jest.advanceTimersByTime(1000);
+  afterEach(() => {
+    jest.useRealTimers();
+  });
+
+  it("updates every second", () => {
+    const callback = jest.fn();
+    const { result } = renderHook(() => {
+      const mockStep = (x = 0, y = 0) => ({
+        getBoundingClientRect() {
+          callback();
+          return { x, y };
+        },
+      });
+      const firstStepRef = useRef<any>(mockStep(100, 100));
+      const stepTwoRef = useRef<any>(mockStep(200, 200));
+      const stepThreeRef = useRef<any>(mockStep(320, 50));
+      const stepFourRef = useRef<any>(mockStep(475, 300));
+      const stepFiveRef = useRef<any>(mockStep(600, 30));
+
+      return useStepAnimation({
+        stepsRef: [
+          firstStepRef,
+          stepTwoRef,
+          stepThreeRef,
+          stepFourRef,
+          stepFiveRef,
+        ],
+      });
     });
 
-    // Check after total 1 sec
-    expect(result.current).toBe(1);
-
-    // Fast-forward 1 more sec
+    act(() => result.current.nextStep());
     act(() => {
-      jest.advanceTimersByTime(1000);
+      jest.advanceTimersByTime(SECOND);
     });
-
-    // Check after total 2 sec
-    expect(result.current).toBe(2);
-  })
-})
+    console.log("callback.mock.calls.length:", callback.mock.calls.length);
+    expect(callback.mock.calls.length).toBe(5);
+    expect(result.current.animationProps.top).toBe("100px");
+    expect(result.current.animationProps.left).toBe("100px");
+  });
+});
