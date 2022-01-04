@@ -1009,7 +1009,7 @@
     levenary "^1.1.1"
     semver "^5.5.0"
 
-"@babel/preset-env@^7.4.5":
+"@babel/preset-env@^7.16.7", "@babel/preset-env@^7.4.5":
   version "7.16.7"
   resolved "https://registry.yarnpkg.com/@babel/preset-env/-/preset-env-7.16.7.tgz#c491088856d0b3177822a2bf06cb74d76327aa56"
   integrity sha512-urX3Cee4aOZbRWOSa3mKPk0aqDikfILuo+C7qq7HY0InylGNZ1fekq9jmlr3pLWwZHF4yD7heQooc2Pow2KMyQ==
@@ -8935,6 +8935,16 @@ react-dev-utils@^10.2.1:
     shell-quote "1.7.2"
     strip-ansi "6.0.0"
     text-table "0.2.0"
+
+react-dom@^16.9.0:
+  version "16.14.0"
+  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.14.0.tgz#7ad838ec29a777fb3c75c3a190f661cf92ab8b89"
+  integrity sha512-1gCeQXDLoIqMgqD3IO2Ah9bnf0w9kzhwN5q4FGnHZ67hBm9yePzB5JJAIQCc8x3pFnNlwFq4RidZggNAAkzWWw==
+  dependencies:
+    loose-envify "^1.1.0"
+    object-assign "^4.1.1"
+    prop-types "^15.6.2"
+    scheduler "^0.19.1"
 
 react-error-overlay@^6.0.7:
   version "6.0.10"
