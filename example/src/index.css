@@ -57,8 +57,10 @@ body {
 
 .ball-list {
   background-color: #f0f0f0;
-  height: 1000px;
+  height: calc(100vh - 120px - 20px);
+  min-height: 720px;
   list-style: none;
+  margin: 0;
   max-width: 1200px;
   padding: 0;
   position: relative;
@@ -88,26 +90,26 @@ body {
 }
 
 .ball__first-step {
-  left: 100px;
+  left: calc(50% - 100px);
   top: 100px;
 }
 
 .ball__second-step {
   left: 200px;
-  top: 200px;
+  top: 250px;
 }
 
 .ball__third-step {
-  left: 50px;
+  left: calc(100% - 300px);
   top: 320px;
 }
 
 .ball__fourth-step {
   left: 300px;
-  top: 475px;
+  top: 600px;
 }
 
 .ball__fifth-step {
-  left: 30px;
-  top: 600px;
+  left: 50%;
+  top: 350px;
 }
