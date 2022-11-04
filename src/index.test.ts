@@ -1,34 +1,43 @@
-import { useStepAnimation } from ".";
-import { renderHook, act } from "@testing-library/react-hooks";
+import { renderHook, act, waitFor } from '@testing-library/react';
+import { useStepAnimation } from '.';
 
 jest.useFakeTimers();
-jest.mock("react-spring", () => ({
-  ...jest.requireActual("react-spring"),
-  useSpring: (value: object) => value,
+jest.mock('react-spring', () => ({
+  ...jest.requireActual('react-spring'),
+  useSpring: (value: object): object => value,
 }));
-jest.mock("./util", () => ({
-  ...jest.requireActual("./util"),
-  sleep: (value: object) =>
+jest.mock('./util', () => ({
+  ...jest.requireActual('./util'),
+  sleep: (value: object): Promise<object> =>
     new Promise((resolve) => {
       resolve(value);
     }),
 }));
 
-const SECOND = 1000;
-const mockStep = (x = 0, y = 0): any => ({
+interface Coordinates {
+  x: number;
+  y: number;
+}
+
+interface MockRef {
   current: {
-    getBoundingClientRect() {
-      return { x, y };
-    },
+    getBoundingClientRect: () => Coordinates;
+  };
+}
+
+const SECOND = 1000;
+const mockStep = (x = 0, y = 0): MockRef => ({
+  current: {
+    getBoundingClientRect: (): Coordinates => ({ x, y }),
   },
 });
 
-describe("useStepAnimation", () => {
+describe('useStepAnimation', () => {
   beforeEach(() => jest.useFakeTimers());
   afterEach(() => jest.useRealTimers());
 
-  it("should update state correctly after each action is executed", async () => {
-    const { result, waitForNextUpdate } = renderHook(() => {
+  it('should update state correctly after each action is executed', async () => {
+    const { result } = renderHook(() => {
       const firstStepRef = mockStep(100, 100);
       const stepTwoRef = mockStep(200, 200);
       const stepThreeRef = mockStep(320, 50);
@@ -36,117 +45,110 @@ describe("useStepAnimation", () => {
       const stepFiveRef = mockStep(600, 30);
 
       return useStepAnimation({
-        stepsRef: [
-          firstStepRef,
-          stepTwoRef,
-          stepThreeRef,
-          stepFourRef,
-          stepFiveRef,
-        ],
+        stepsRef: [firstStepRef, stepTwoRef, stepThreeRef, stepFourRef, stepFiveRef],
       });
     });
 
-    await waitForNextUpdate();
-
-    expect(result.current.animationProps.top).toBe(100);
-    expect(result.current.animationProps.left).toBe(100);
-    expect(result.current.step).toBe(0);
-    expect(result.current.stepsPositions).toEqual([
-      { x: 100, y: 100 },
-      { x: 200, y: 200 },
-      { x: 320, y: 50 },
-      { x: 475, y: 300 },
-      { x: 600, y: 30 },
-    ]);
-
-    act(() => {
-      result.current.nextStep();
-      jest.advanceTimersByTime(SECOND);
+    await waitFor(() => {
+      expect(result.current.step).toBe(0);
+      expect(result.current.animationProps.top).toBe(100);
+      expect(result.current.animationProps.left).toBe(100);
+      expect(result.current.stepsPositions).toEqual([
+        { x: 100, y: 100 },
+        { x: 200, y: 200 },
+        { x: 320, y: 50 },
+        { x: 475, y: 300 },
+        { x: 600, y: 30 },
+      ]);
     });
 
-    expect(result.current.animationProps.top).toBe(200);
-    expect(result.current.animationProps.left).toBe(200);
-    expect(result.current.step).toBe(1);
+    const testStep = async ({
+      stepType = 'next',
+      step,
+      top,
+      left,
+    }: {
+      stepType: 'next' | 'previous';
+      step: number;
+      top: number;
+      left: number;
+    }): Promise<void> => {
+      act(() => result.current[stepType === 'next' ? 'nextStep' : 'previousStep']());
+      act(() => jest.advanceTimersByTime(SECOND));
 
-    act(() => {
-      result.current.nextStep();
-      jest.advanceTimersByTime(SECOND);
+      await waitFor(() => expect(result.current.step).toBe(step));
+      expect(result.current.animationProps.top).toBe(top);
+      expect(result.current.animationProps.left).toBe(left);
+    };
+
+    await testStep({
+      stepType: 'next',
+      step: 1,
+      top: 200,
+      left: 200,
     });
 
-    expect(result.current.animationProps.top).toBe(50);
-    expect(result.current.animationProps.left).toBe(320);
-    expect(result.current.step).toBe(2);
-
-    act(() => {
-      result.current.nextStep();
-      jest.advanceTimersByTime(SECOND);
+    await testStep({
+      stepType: 'next',
+      step: 2,
+      top: 50,
+      left: 320,
     });
 
-    expect(result.current.animationProps.top).toBe(300);
-    expect(result.current.animationProps.left).toBe(475);
-    expect(result.current.step).toBe(3);
-
-    act(() => {
-      result.current.nextStep();
-      jest.advanceTimersByTime(SECOND);
+    await testStep({
+      stepType: 'next',
+      step: 3,
+      top: 300,
+      left: 475,
     });
 
-    expect(result.current.animationProps.top).toBe(30);
-    expect(result.current.animationProps.left).toBe(600);
-    expect(result.current.step).toBe(4);
-
-    act(() => {
-      result.current.nextStep();
-      jest.advanceTimersByTime(SECOND);
+    await testStep({
+      stepType: 'next',
+      step: 4,
+      top: 30,
+      left: 600,
     });
 
-    expect(result.current.animationProps.top).toBe(30);
-    expect(result.current.animationProps.left).toBe(600);
-    expect(result.current.step).toBe(4);
-
-    act(() => {
-      result.current.previousStep();
-      jest.advanceTimersByTime(SECOND);
+    await testStep({
+      stepType: 'next',
+      step: 4,
+      top: 30,
+      left: 600,
     });
 
-    expect(result.current.animationProps.top).toBe(300);
-    expect(result.current.animationProps.left).toBe(475);
-    expect(result.current.step).toBe(3);
-
-    act(() => {
-      result.current.previousStep();
-      jest.advanceTimersByTime(SECOND);
+    await testStep({
+      stepType: 'previous',
+      step: 3,
+      top: 300,
+      left: 475,
     });
 
-    expect(result.current.animationProps.top).toBe(50);
-    expect(result.current.animationProps.left).toBe(320);
-    expect(result.current.step).toBe(2);
-
-    act(() => {
-      result.current.previousStep();
-      jest.advanceTimersByTime(SECOND);
+    await testStep({
+      stepType: 'previous',
+      step: 2,
+      top: 50,
+      left: 320,
     });
 
-    expect(result.current.animationProps.top).toBe(200);
-    expect(result.current.animationProps.left).toBe(200);
-    expect(result.current.step).toBe(1);
-
-    act(() => {
-      result.current.previousStep();
-      jest.advanceTimersByTime(SECOND);
+    await testStep({
+      stepType: 'previous',
+      step: 1,
+      top: 200,
+      left: 200,
     });
 
-    expect(result.current.animationProps.top).toBe(100);
-    expect(result.current.animationProps.left).toBe(100);
-    expect(result.current.step).toBe(0);
-
-    act(() => {
-      result.current.previousStep();
-      jest.advanceTimersByTime(SECOND);
+    await testStep({
+      stepType: 'previous',
+      step: 0,
+      top: 100,
+      left: 100,
     });
 
-    expect(result.current.animationProps.top).toBe(100);
-    expect(result.current.animationProps.left).toBe(100);
-    expect(result.current.step).toBe(0);
+    await testStep({
+      stepType: 'previous',
+      step: 0,
+      top: 100,
+      left: 100,
+    });
   });
 });

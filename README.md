@@ -2,7 +2,7 @@
 
 > Custom hook used to make sequence of animations using positions more easily
 
-[![NPM](https://img.shields.io/npm/v/use-step-animation.svg)](https://www.npmjs.com/package/use-step-animation) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![NPM](https://img.shields.io/npm/v/use-step-animation.svg)](https://www.npmjs.com/package/use-step-animation)
 
 ## Install
 
@@ -76,7 +76,3 @@ const Example = () => {
 ## License
 
 MIT © [lucasfloriani](https://github.com/lucasfloriani)
-
----
-
-This hook is created using [create-react-hook](https://github.com/hermanya/create-react-hook).

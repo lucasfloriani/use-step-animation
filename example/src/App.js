@@ -1,6 +1,6 @@
-import React from "react";
-import { animated } from "react-spring";
-import { useStepAnimation } from "use-step-animation";
+import React from 'react';
+import { animated } from 'react-spring';
+import { useStepAnimation } from 'use-step-animation';
 
 const App = () => {
   const [queueTime, setQueueTime] = React.useState(1000);

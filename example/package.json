@@ -1,20 +1,20 @@
 {
   "name": "use-step-animation-example",
   "homepage": "https://lucasfloriani.github.io/use-step-animation",
-  "version": "0.0.0",
+  "version": "1.0.1",
   "license": "MIT",
   "private": true,
   "dependencies": {
     "react": "link:../node_modules/react",
-    "react-dom": "^16.9.0",
-    "react-scripts": "^3.0.1",
-    "react-spring": "^9.3.3",
+    "react-dom": "^18.2.0",
+    "react-scripts": "^5.0.1",
+    "react-spring": "^9.5.5",
     "use-step-animation": "link:.."
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
+    "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
   "browserslist": [

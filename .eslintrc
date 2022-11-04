@@ -1,0 +1,58 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "plugin:prettier/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:import/typescript",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "plugins": [
+    "@typescript-eslint",
+    "prettier",
+    "prefer-arrow",
+    "import",
+    "react-hooks"
+  ],
+  "ignorePatterns": ["dist/**", "coverage/**", "example/**"],
+  "rules": {
+    "@typescript-eslint/consistent-type-definitions": "error",
+    "@typescript-eslint/explicit-function-return-type": "error",
+    "@typescript-eslint/no-unused-vars": "error",
+    "arrow-parens": [
+      "off",
+      "as-needed"
+    ],
+    "import/first": "error",
+    "import/order": "error",
+    "no-console": "error",
+    "no-duplicate-imports": "error",
+    "no-eval": "error",
+    "no-return-await": "error",
+    "no-unused-expressions": "error",
+    "no-unused-vars": "error",
+    "object-shorthand": "error",
+    "prefer-arrow/prefer-arrow-functions": "error",
+    "prefer-const": "error",
+    "prettier/prettier": "error",
+    "quotes": [
+      "error",
+      "single"
+    ],
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "spaced-comment": [
+      "error",
+      "always",
+      {
+        "markers": [
+          "/"
+        ]
+      }
+    ]
+  }
+}
