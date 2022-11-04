@@ -1,23 +1,13 @@
 {
   "files": {
-    "main.css": "/use-step-animation/static/css/main.a82cce0d.chunk.css",
-    "main.js": "/use-step-animation/static/js/main.16bb7797.chunk.js",
-    "main.js.map": "/use-step-animation/static/js/main.16bb7797.chunk.js.map",
-    "runtime-main.js": "/use-step-animation/static/js/runtime-main.7317f910.js",
-    "runtime-main.js.map": "/use-step-animation/static/js/runtime-main.7317f910.js.map",
-    "static/js/2.47d2e486.chunk.js": "/use-step-animation/static/js/2.47d2e486.chunk.js",
-    "static/js/2.47d2e486.chunk.js.map": "/use-step-animation/static/js/2.47d2e486.chunk.js.map",
+    "main.css": "/use-step-animation/static/css/main.d6e7153c.css",
+    "main.js": "/use-step-animation/static/js/main.3a671750.js",
     "index.html": "/use-step-animation/index.html",
-    "precache-manifest.25b90b9fe211a150852e349486cd6f97.js": "/use-step-animation/precache-manifest.25b90b9fe211a150852e349486cd6f97.js",
-    "service-worker.js": "/use-step-animation/service-worker.js",
-    "static/css/main.a82cce0d.chunk.css.map": "/use-step-animation/static/css/main.a82cce0d.chunk.css.map",
-    "static/js/2.47d2e486.chunk.js.LICENSE.txt": "/use-step-animation/static/js/2.47d2e486.chunk.js.LICENSE.txt",
-    "static/js/main.16bb7797.chunk.js.LICENSE.txt": "/use-step-animation/static/js/main.16bb7797.chunk.js.LICENSE.txt"
+    "main.d6e7153c.css.map": "/use-step-animation/static/css/main.d6e7153c.css.map",
+    "main.3a671750.js.map": "/use-step-animation/static/js/main.3a671750.js.map"
   },
   "entrypoints": [
-    "static/js/runtime-main.7317f910.js",
-    "static/js/2.47d2e486.chunk.js",
-    "static/css/main.a82cce0d.chunk.css",
-    "static/js/main.16bb7797.chunk.js"
+    "static/css/main.d6e7153c.css",
+    "static/js/main.3a671750.js"
   ]
 }
